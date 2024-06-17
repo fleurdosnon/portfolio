@@ -17,6 +17,11 @@ public class AppController {
 
     private final AccountService accountService;
 
+    @GetMapping("/greetings")
+    String greetings() {
+        return "Hello";
+    }
+
     @GetMapping("/accounts/{clientId}")
     List<AccountDTO> getListAccountsByUserId(@PathVariable Integer clientId) {
         return accountService.getListAccountDTOByClientId(clientId);
