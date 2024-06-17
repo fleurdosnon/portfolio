@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
     private final AccountMapper accountMapper = Mappers.getMapper(AccountMapper.class);
 

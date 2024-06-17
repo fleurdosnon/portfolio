@@ -16,5 +16,5 @@ public class Client {
     String userName;
     String password;
     @OneToMany(mappedBy = "client")
-    Set<Account> accounts; //No joined accounts in this version
+    Set<Account> accounts; //No joined account in this version
 }

@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS transaction;
+DROP TABLE IF EXISTS account;
+DROP TABLE IF EXISTS client;
+
 CREATE TABLE `client` (
     `id` INT NOT NULL AUTO_INCREMENT,
 	`username` VARCHAR(40) NOT NULL,

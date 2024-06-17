@@ -1,1 +1,3 @@
-DROP TABLE `client`, `account`, `transaction`;
+DROP TABLE IF EXISTS transaction;
+DROP TABLE IF EXISTS account;
+DROP TABLE IF EXISTS client;

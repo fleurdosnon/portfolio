@@ -1,7 +1,6 @@
 package com.fdosnon.online_banking.repositories;
 
 import com.fdosnon.online_banking.entities.Client;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

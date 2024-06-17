@@ -17,6 +17,7 @@ public class Transaction {
     @OneToOne
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     Account account;
+    @Enumerated(EnumType.STRING)
     @Column(name="transaction_type")
     TransactionType type;
     String label;

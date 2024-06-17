@@ -18,6 +18,7 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "client_id")
     Client client;
+    @Enumerated(EnumType.STRING)
     @Column(name = "account_type")
     AccountType type;
     @Column(name = "subscription_date")
