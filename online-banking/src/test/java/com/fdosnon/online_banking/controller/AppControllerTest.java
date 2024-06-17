@@ -1,7 +1,10 @@
 package com.fdosnon.online_banking.controller;
 
 import com.fdosnon.online_banking.dto.AccountDTO;
+import com.fdosnon.online_banking.dto.TransactionDTO;
 import com.fdosnon.online_banking.services.AccountService;
+import com.fdosnon.online_banking.services.TransactionService;
+import com.fdosnon.online_banking.util.TransactionType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -18,13 +21,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(value = AppController.class,  excludeAutoConfiguration = {SecurityAutoConfiguration.class})
+@WebMvcTest(value = AppController.class, excludeAutoConfiguration = {SecurityAutoConfiguration.class})
 class AppControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
     @MockBean
-    private AccountService accountService;
+    AccountService accountService;
+    @MockBean
+    TransactionService transactionService;
+
 
     @Test
     void getGreetings() throws Exception {
@@ -47,6 +53,20 @@ class AppControllerTest {
                 // THEN
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("333 444 555")));
+    }
+
+    @Test
+    void getListTransactionDTOByAccountID_shouldReturnList() throws Exception {
+        TransactionDTO transactionDTO = new TransactionDTO();
+        transactionDTO.setId(99);
+        transactionDTO.setType(TransactionType.DEBIT.name());
+        transactionDTO.setLabel("bla bla bla label");
+        when(transactionService.getListTransactionByAccountId(101)).thenReturn(List.of(transactionDTO));
+        // WHEN
+        this.mockMvc.perform(get("/api/account/{accountId}", 101))
+                // THEN
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("bla bla bla label")));
     }
 
 }

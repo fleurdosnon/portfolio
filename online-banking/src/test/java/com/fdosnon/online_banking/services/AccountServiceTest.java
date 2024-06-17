@@ -20,9 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class AccountServiceTest {
 
     @InjectMocks
-    private AccountServiceImpl accountService;
+    AccountServiceImpl accountService;
     @Mock
-    private AccountRepository accountRepository;
+    AccountRepository accountRepository;
 
     @Test
     void getListAccountDTOByClientId() {

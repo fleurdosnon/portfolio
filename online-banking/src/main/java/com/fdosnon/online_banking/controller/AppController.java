@@ -3,13 +3,13 @@ package com.fdosnon.online_banking.controller;
 import com.fdosnon.online_banking.dto.AccountDTO;
 import com.fdosnon.online_banking.dto.TransactionDTO;
 import com.fdosnon.online_banking.services.AccountService;
+import com.fdosnon.online_banking.services.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -18,6 +18,7 @@ import java.util.List;
 public class AppController {
 
     private final AccountService accountService;
+    private final TransactionService transactionService;
 
     @GetMapping("/greetings")
     String greetings() {
@@ -31,6 +32,6 @@ public class AppController {
 
     @GetMapping("/account/{accountId}")
     List<TransactionDTO> getListTransactionDTOByAccountID(@PathVariable Integer accountId) {
-        return new ArrayList<>();
+        return transactionService.getListTransactionByAccountId(accountId);
     }
 }

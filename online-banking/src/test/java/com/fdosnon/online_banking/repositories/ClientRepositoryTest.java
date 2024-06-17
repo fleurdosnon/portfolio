@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ClientRepositoryTest {
 
     @Autowired
-    private ClientRepository clientRepository;
+    ClientRepository clientRepository;
 
     @Test
     void whenClientIsSaved_findById_returnClient() {

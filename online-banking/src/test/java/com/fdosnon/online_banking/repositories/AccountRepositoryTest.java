@@ -20,9 +20,9 @@ import java.util.Optional;
 class AccountRepositoryTest {
 
     @Autowired
-    private ClientRepository clientRepository;
+    ClientRepository clientRepository;
     @Autowired
-    private AccountRepository accountRepository;
+    AccountRepository accountRepository;
 
 
     @Test
