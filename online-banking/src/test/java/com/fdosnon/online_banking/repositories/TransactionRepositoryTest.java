@@ -39,6 +39,7 @@ class TransactionRepositoryTest {
         accountToPersist.setClient(clientPersisted);
         accountToPersist.setNumber("123456");
         accountToPersist.setType(AccountType.CHEQUE);
+        accountToPersist.setBalance(BigDecimal.TEN);
         accountToPersist.setSubscriptionDate(LocalDate.now());
         Account persistedAccount = accountRepository.save(accountToPersist);
 

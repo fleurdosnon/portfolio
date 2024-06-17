@@ -14,6 +14,7 @@ CREATE TABLE `account` (
 	`account_number` VARCHAR(50) NOT NULL,
 	`client_id` INT NOT NULL,
 	`account_type` VARCHAR(20) NOT NULL,
+	`balance` DECIMAL(20,6) NOT NULL,
 	`subscription_date` DATE NOT NULL,
 	`subscription_end_date` DATE NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),

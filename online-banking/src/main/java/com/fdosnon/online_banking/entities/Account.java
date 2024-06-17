@@ -4,6 +4,7 @@ import com.fdosnon.online_banking.util.AccountType;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -21,6 +22,7 @@ public class Account {
     @Enumerated(EnumType.STRING)
     @Column(name = "account_type")
     AccountType type;
+    BigDecimal balance;
     @Column(name = "subscription_date")
     LocalDate subscriptionDate;
     @Column(name = "subscription_end_date")
