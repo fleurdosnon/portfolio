@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 
 @Data
 public class AccountDTO {
-    Integer id;
-    String number;
-    String type;
-    BigDecimal balance;
+    private Integer id;
+    private String number;
+    private String type;
+    private BigDecimal balance;
 }
