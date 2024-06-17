@@ -11,10 +11,10 @@ import java.util.Set;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
     @Column(name = "username")
-    String userName;
-    String password;
+    private String userName;
+    private String password;
     @OneToMany(mappedBy = "client")
-    Set<Account> accounts; //No joined account in this version
+    private Set<Account> accounts; //No joined account in this version
 }

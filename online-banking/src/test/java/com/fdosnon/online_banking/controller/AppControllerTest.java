@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(value = AppController.class,  excludeAutoConfiguration = {SecurityAutoConfiguration.class})
-class AppControllerIntegrationTest {
+class AppControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -43,7 +43,7 @@ class AppControllerIntegrationTest {
         accountDTO.setNumber("333 444 555");
         when(accountService.getListAccountDTOByClientId(42)).thenReturn(List.of(accountDTO));
         // WHEN
-        this.mockMvc.perform(get("/api/accounts/{clientId}", 42))
+        this.mockMvc.perform(get("/api/client/{clientId}", 42))
                 // THEN
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("333 444 555")));

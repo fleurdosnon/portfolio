@@ -13,18 +13,18 @@ import java.time.LocalDate;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
     @Column(name = "account_number")
-    String number;
+    private String number;
     @ManyToOne
     @JoinColumn(name = "client_id")
-    Client client;
+    private Client client;
     @Enumerated(EnumType.STRING)
     @Column(name = "account_type")
-    AccountType type;
-    BigDecimal balance;
+    private AccountType type;
+    private BigDecimal balance;
     @Column(name = "subscription_date")
-    LocalDate subscriptionDate;
+    private LocalDate subscriptionDate;
     @Column(name = "subscription_end_date")
-    LocalDate subscriptionEndDate;
+    private LocalDate subscriptionEndDate;
 }

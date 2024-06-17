@@ -13,17 +13,17 @@ import java.time.LocalDate;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
     @OneToOne
     @JoinColumn(name = "account_id", referencedColumnName = "id")
-    Account account;
+    private Account account;
     @Enumerated(EnumType.STRING)
     @Column(name="transaction_type")
-    TransactionType type;
-    String label;
-    BigDecimal amount;
+    private TransactionType type;
+    private String label;
+    private BigDecimal amount;
     @Column(name="transaction_date")
-    LocalDate transactionDate;
+    private LocalDate transactionDate;
     @Column(name="cancellation_date")
-    LocalDate cancellationDate;
+    private LocalDate cancellationDate;
 }
